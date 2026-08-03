@@ -192,6 +192,19 @@
       ]
     },
     {
+      "name": "flower-menu",
+      "type": "registry:component",
+      "title": "Flower Menu",
+      "description": "A radial flower-style quick actions menu with staggered smooth motion.",
+      "dependencies": ["motion", "lucide-react", "clsx", "tailwind-merge"],
+      "files": [
+        {
+          "path": "registry/default/example/flower-menu.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "folder-interaction",
       "type": "registry:component",
       "title": "Folder Interaction",
@@ -510,6 +523,71 @@
       "files": [
         {
           "path": "registry/default/example/empty-testimonial.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "add-cash",
+      "type": "registry:component",
+      "title": "Add Cash",
+      "description": "A premium animated wallet top-up interaction with morphing disclosure and smooth selection transitions.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/default/example/add-cash.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "copy-button",
+      "type": "registry:component",
+      "title": "Copy Button",
+      "description": "A compact copy interaction button with animated success feedback.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/default/example/copy-button.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "counter",
+      "type": "registry:component",
+      "title": "Counter",
+      "description": "An animated numeric counter with smooth increment and decrement transitions.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/default/example/counter.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "stepper",
+      "type": "registry:component",
+      "title": "Stepper",
+      "description": "An animated stepper interface for multi-step progress flows.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/default/example/stepper.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "swap-form",
+      "type": "registry:component",
+      "title": "Swap Form",
+      "description": "A form panel with animated mode switching and fluid content transitions.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/default/example/swap-form.tsx",
           "type": "registry:component"
         }
       ]
