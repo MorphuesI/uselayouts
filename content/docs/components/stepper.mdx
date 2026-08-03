@@ -1,0 +1,116 @@
+---
+title: Stepper 
+description: An animated multi-step progress component with smooth transitions, active indicators, and morphing step states.
+---
+
+import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { SourceCode } from "@/components/source-code";
+import { ComponentPreview } from "@/components/component-preview";
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab value="Preview">
+    <ComponentPreview name="stepper" />
+  </Tab>
+
+  <Tab value="Code">
+    <SourceCode name="stepper" />
+  </Tab>
+</Tabs>
+
+## Installation
+
+<Tabs items={["CLI", "Manual"]}>
+  <Tab value="CLI">
+
+```bash
+npx shadcn@latest add "https://uselayouts.com/r/stepper.json"
+```
+
+  </Tab>
+
+  <Tab value="Manual">
+
+<Steps>
+  <Step>
+
+### Install dependencies
+
+```bash
+npm install motion clsx @hugeicons/react @hugeicons/core-free-icons
+```
+
+  </Step>
+
+  <Step>
+
+### Copy the code
+
+Copy the code from the **Code** tab above into:
+
+```bash
+components/stepper.tsx
+```
+
+  </Step>
+
+  <Step>
+
+### Update imports
+
+Update the imports to match your project structure.
+
+  </Step>
+</Steps>
+
+  </Tab>
+</Tabs>
+
+## Usage
+
+### Customizing Steps
+
+You can customize the step labels, icons, and completion states by editing the `steps` array:
+
+```tsx
+// Change Here
+export const steps = [
+  {
+    title: "Account",
+    description: "Create your account",
+  },
+  {
+    title: "Profile",
+    description: "Setup your profile",
+  },
+  {
+    title: "Complete",
+    description: "Finish onboarding",
+  },
+];
+```
+
+```tsx
+import StepperInteraction from "@/components/stepper";
+
+export default function Page() {
+  return (
+    <div className="flex items-center justify-center h-[400px] w-full">
+      <StepperInteraction />
+    </div>
+  );
+}
+```
+
+## Features
+
+- **Animated progress states** - Smooth transitions between active, completed, and upcoming steps
+- **Shared layout animations** - Fluid morphing indicators powered by Framer Motion
+- **Step completion indicators** - Animated checkmarks for completed steps
+- **Interactive navigation** - Clickable steps with hover and focus states
+- **Progress connector animation** - Connecting line fills dynamically as progress advances
+- **Responsive layout** - Adapts beautifully across different screen sizes
+- **Spring-based motion** - Natural animations with configurable easing and bounce
+- **Accessible interactions** - Keyboard-friendly and screen-reader compatible
+- **Customizable content** - Easily modify titles, descriptions, and icons
+- **Minimal design system** - Clean UI that integrates seamlessly into dashboards and onboarding flows

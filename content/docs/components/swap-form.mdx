@@ -1,0 +1,139 @@
+---
+title: Swap Form
+description: A premium animated authentication form with smooth transitions between sign in and sign up states.
+---
+
+import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { SourceCode } from "@/components/source-code";
+import { ComponentPreview } from "@/components/component-preview";
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab value="Preview">
+    <ComponentPreview name="swap-form" full />
+  </Tab>
+
+  <Tab value="Code">
+    <SourceCode name="swap-form" />
+  </Tab>
+</Tabs>
+
+## Installation
+
+<Tabs items={['CLI', 'Manual']}>
+  <Tab value="CLI">
+    ```bash
+    npx shadcn@latest add "https://uselayouts.com/r/swap-form.json"
+    ```
+  </Tab>
+
+  <Tab value="Manual">
+    <Steps>
+      <Step>
+        ### Install dependencies
+
+        ```bash
+        npm install motion
+        ```
+      </Step>
+
+      <Step>
+        ### Copy the code
+
+        Copy the code from the **Code** tab above into `components/swap-form.tsx`.
+      </Step>
+
+      <Step>
+        ### Update imports
+
+        Update the imports to match your project structure.
+      </Step>
+    </Steps>
+
+  </Tab>
+</Tabs>
+
+## Usage
+
+### Customizing Content
+
+You can customize the authentication titles and descriptions directly inside the component:
+
+```tsx
+// Change Here
+const isSignUp = mode === "signup";
+
+<h1>
+  {isSignUp ? "Create Account" : "Welcome Back"}
+</h1>
+
+<p>
+  {isSignUp
+    ? "Just one more step to get started."
+    : "Sign in to continue."}
+</p>
+```
+
+#### Input Fields
+
+You can easily add or remove form fields by modifying the form section:
+
+```tsx
+<InputField
+  label="Full Name"
+  type="text"
+  placeholder="Your name"
+/>
+
+<InputField
+  label="Email"
+  type="email"
+  placeholder="you@example.com"
+/>
+```
+
+#### Animation Configuration
+
+The main animation behavior is controlled using the spring configuration:
+
+```tsx
+const SPRING = {
+  type: "spring",
+  stiffness: 520,
+  damping: 38,
+  mass: 0.7,
+};
+```
+
+You can also customize transition timing:
+
+```tsx
+const EASE = {
+  duration: 0.22,
+  ease: [0.4, 0, 0.2, 1],
+};
+```
+
+```tsx
+import SwapForm from "@/components/swap-form";
+
+export default function Page() {
+  return (
+    <div className="max-w-2xl mx-auto py-12">
+      <SwapForm />
+    </div>
+  );
+}
+```
+
+## Features
+
+- **Morphing Auth States** - Smooth transitions between Sign In and Sign Up modes
+- **Shared Layout Animations** - Fluid layout and height interpolation
+- **Premium Motion Design** - Spring-based animations with polished interactions
+- **Glassmorphism UI** - Frosted translucent card with layered depth
+- **Animated Cursor Glow** - Interactive radial highlight effect
+- **Reusable Components** - Modular input fields and social login buttons
+- **Micro Interactions** - Hover, tap, and focus animations throughout
+- **Responsive Layout** - Adaptive authentication card that fits inside preview containers
+- **Optimized Performance** - Reduced layout thrashing and smoother transitions

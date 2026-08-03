@@ -1,0 +1,106 @@
+---
+title: Bottom Menu
+description: A dynamic bottom menu with expanding submenus and theme switching.
+---
+
+import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { SourceCode } from "@/components/source-code";
+import { ComponentPreview } from "@/components/component-preview";
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab value="Preview">
+    <ComponentPreview name="bottom-menu" align="end" />
+  </Tab>
+  <Tab value="Code">
+    <SourceCode name="bottom-menu" />
+  </Tab>
+</Tabs>
+
+## Installation
+
+<Tabs items={['CLI', 'Manual']}>
+  <Tab value="CLI">
+    ```bash
+    npx shadcn@latest add "https://uselayouts.com/r/bottom-menu.json"
+    ```
+  </Tab>
+  <Tab value="Manual">
+    <Steps>
+      <Step>
+        ### Install dependencies
+
+        ```bash
+        npm install motion react-use-measure @hugeicons/react @hugeicons/core-free-icons
+        ```
+      </Step>
+      <Step>
+        ### Copy the code
+
+        Copy the code from the **Code** tab above into `components/bottom-menu.tsx`.
+      </Step>
+      <Step>
+        ### Update imports
+
+        Update the imports to match your project structure.
+      </Step>
+    </Steps>
+
+  </Tab>
+</Tabs>
+
+## Usage
+
+### Customizing Content
+
+You can easily customize the menu items by modifying the arrays at the top of the file:
+
+```tsx
+// Change Here
+const HOME_ITEMS = [
+  { icon: PencilEdit02Icon, text: "Note" },
+  { icon: Mic01Icon, text: "Voice" },
+  // ...
+];
+
+const NOTIFICATION_TYPES = ["Messages", "System Alerts"];
+```
+
+#### Submenu Content
+
+You can define the layout and elements of each submenu within the `content` useMemo:
+
+```tsx
+const content = useMemo(() => {
+  switch (view) {
+    case "home":
+      return (
+        <div className="space-y-0.5 min-w-[210px] p-[6px] py-0.5">
+          {HOME_ITEMS.map(({ icon: Icon, text }) => (
+            <button key={text} className="...">
+              <HugeiconsIcon icon={Icon} size={20} />
+              <span>{text}</span>
+            </button>
+          ))}
+        </div>
+      );
+    // Add more cases for other views...
+  }
+}, [view]);
+```
+
+```tsx
+import BottomMenu from "@/components/bottom-menu";
+
+export default function Page() {
+  return <BottomMenu />;
+}
+```
+
+## Features
+
+- **Expandable Submenus**: Menus expand smoothly to reveal options using spring physics.
+- **Theme Switching**: Built-in support for dark and light mode toggling.
+- **Responsive Design**: Adapts gracefully to different screen sizes.
+- **Smooth Animations**: Powered by `framer-motion` for fluid, organic transitions.
+- **Keyboard Navigation**: Accessible menu items with focus states.

@@ -1,0 +1,78 @@
+---
+title: Delete Button
+description: A delete button with a confirmation countdown and undo functionality.
+---
+
+import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { SourceCode } from "@/components/source-code";
+import { ComponentPreview } from "@/components/component-preview";
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab value="Preview">
+    <ComponentPreview name="delete-button" />
+  </Tab>
+  <Tab value="Code">
+    <SourceCode name="delete-button" />
+  </Tab>
+</Tabs>
+
+## Installation
+
+<Tabs items={['CLI', 'Manual']}>
+  <Tab value="CLI">
+    ```bash
+    npx shadcn@latest add "https://uselayouts.com/r/delete-button.json"
+    ```
+  </Tab>
+  <Tab value="Manual">
+    <Steps>
+      <Step>
+        ### Install dependencies
+
+        ```bash
+        npm install motion @hugeicons/react @hugeicons/core-free-icons
+        ```
+      </Step>
+      <Step>
+        ### Copy the code
+
+        Copy the code from the **Code** tab above into `components/delete-button.tsx`.
+      </Step>
+      <Step>
+        ### Update imports
+
+        Update the imports to match your project structure.
+      </Step>
+    </Steps>
+
+  </Tab>
+</Tabs>
+
+## Usage
+
+### Customizing Content
+
+You can customize the labels by updating the `deleteText` and `cancelText` variables inside the component:
+
+```tsx
+// Change Here
+const deleteText = "Delete Account";
+const cancelText = "Cancel Deletion";
+```
+
+```tsx
+import DeleteButton from "@/components/delete-button";
+
+export default function Page() {
+  return <DeleteButton />;
+}
+```
+
+## Features
+
+- **Confirmation Timer**: Visual countdown ring prevents accidental deletions.
+- **Undo Capability**: User can cancel the action during the countdown phase.
+- **State Feedback**: Clear visual states for idle, processing, and completion.
+- **Customizable Duration**: Easy to adjust the countdown timer length.
+- **Micro-interactions**: Subtle scale and color animations enhance the user experience.
