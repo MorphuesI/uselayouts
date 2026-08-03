@@ -154,7 +154,7 @@ const ConnectorLine = ({
       className="relative overflow-hidden bg-zinc-200 dark:bg-zinc-700"
       style={
         orientation === "horizontal"
-          ? { flex: 1, height: "2px", margin: "0 4px" }
+          ? { flex: 1, height: "2px", margin: "19px 4px 0 4px" }
           : { width: "2px", height: "40px", margin: "4px 19px" }
       }
     >
@@ -214,7 +214,7 @@ const Stepper = ({
           {steps.map((step, i) => (
             <div
               key={i}
-              className="flex items-center flex-1 last:flex-none"
+              className="flex items-start flex-1 last:flex-none"
             >
               <div className="flex flex-col items-center gap-2">
                 <StepCircle

@@ -2,13 +2,8 @@
 
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import {
-  motion,
-  AnimatePresence,
-  useMotionValue,
-  useSpring,
-} from "motion/react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 
 const SPRING = {
   type: "spring",
@@ -109,53 +104,9 @@ const Divider = () => (
 export default function SwapForm() {
   const [mode, setMode] = useState("signup");
 
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  const springX = useSpring(mouseX, {
-    stiffness: 80,
-    damping: 20,
-  });
-
-  const springY = useSpring(mouseY, {
-    stiffness: 80,
-    damping: 20,
-  });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!cardRef.current) return;
-
-      const rect =
-        cardRef.current.getBoundingClientRect();
-
-      mouseX.set(e.clientX - rect.left);
-      mouseY.set(e.clientY - rect.top);
-    };
-
-    window.addEventListener(
-      "mousemove",
-      handleMouseMove
-    );
-
-    return () =>
-      window.removeEventListener(
-        "mousemove",
-        handleMouseMove
-      );
-  }, []);
-
   return (
-    <div className="relative flex h-[720px] w-full items-center justify-center overflow-hidden rounded-3xl bg-gradient-to-br from-zinc-100 via-zinc-200 to-zinc-100 dark:from-zinc-950 dark:via-zinc-900 dark:to-black p-6">
-
-      <div className="absolute -right-28 -top-28 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(180,180,255,0.18)_0%,transparent_70%)] blur-[40px]" />
-
-      <div className="absolute -bottom-24 -left-24 h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,rgba(255,180,160,0.14)_0%,transparent_70%)] blur-[40px]" />
-
+    <div className="relative flex h-[720px] w-full items-center justify-center overflow-hidden rounded-3xl bg-zinc-100 p-6 dark:bg-zinc-950">
       <motion.div
-        ref={cardRef}
         layout
         transition={{
           type: "spring",
@@ -164,16 +115,6 @@ export default function SwapForm() {
         }}
         className="relative w-full max-w-[420px] overflow-hidden rounded-[28px] bg-white/90 dark:bg-zinc-900/90 p-8 shadow-[0_8px_32px_rgba(0,0,0,0.08),0_2px_8px_rgba(0,0,0,0.04)] backdrop-blur-2xl"
       >
-        <motion.div
-          style={{
-            x: springX,
-            y: springY,
-            translateX: "-50%",
-            translateY: "-50%",
-          }}
-          className="pointer-events-none absolute z-0 h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.3)_0%,transparent_70%)] blur-3xl dark:bg-[radial-gradient(circle,rgba(255,255,255,0.08)_0%,transparent_70%)]"
-        />
-
         <div className="relative z-10">
           <AnimatePresence
             mode="wait"
